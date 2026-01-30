@@ -1,0 +1,84 @@
+---
+import '../styles/global.css';
+
+const skills = ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'Astro', 'Tailwind CSS', 'PostgreSQL'];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>About | Andrew Allsop</title>
+    <meta name="description" content="About Andrew Allsop - developer and designer." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-neutral-900 text-neutral-100 min-h-screen">
+    <div class="max-w-xl mx-auto px-6 py-16">
+      <!-- Nav -->
+      <nav class="flex items-center justify-between mb-16 text-sm">
+        <div class="flex items-center gap-6">
+          <a href="/" class="text-neutral-300 hover:text-white transition-colors">Home</a>
+          <a href="/blog" class="text-neutral-300 hover:text-white transition-colors">Notes</a>
+          <a href="/projects" class="text-neutral-300 hover:text-white transition-colors">Projects</a>
+        </div>
+        <a href="mailto:hello@andrewallsop.com" class="text-white underline underline-offset-4">Contact</a>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <h1 class="text-2xl font-semibold text-white mb-6">About</h1>
+
+        <div class="space-y-4 text-neutral-400 leading-relaxed">
+          <p>
+            Most marketing advice sounds great until you try to make it work with an actual budget.
+          </p>
+          <p>
+            I help growing businesses turn marketing into something that reliably generates revenue. That means demand
+            gen, operations, and helping teams understand how growth really works when resources are finite and the
+            board wants answers.
+          </p>
+          <p>
+            I'm less interested in chasing the newest channel and more interested in fixing what's underneath: pipeline
+            quality, conversion rates, sales alignment, and whether the math actually works.
+          </p>
+          <p>
+            I've spent my career across B2B SaaS and growth-stage brands, helping teams shift from "we're doing a lot of
+            marketing" to "we know what's working and why." Usually that means simplifying the stack, tightening
+            measurement, and having honest conversations about what to stop doing.
+          </p>
+          <p>
+            Outside of work, I’m a dad, currently juggling family life with renovating our house. Most spare time is
+            spent fixing things, planning the next job, or trying to keep some balance between work, home, and health.
+          </p>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="mb-10">
+        <h2 class="text-neutral-400 text-sm font-medium mb-4">Technologies</h2>
+        <div class="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <span class="px-3 py-1.5 bg-neutral-800 text-neutral-300 text-sm rounded">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Back -->
+      <a
+        href="/"
+        class="inline-flex items-center gap-2 text-white text-sm underline underline-offset-4 hover:text-neutral-300"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+        </svg>
+        Back home
+      </a>
+    </div>
+  </body>
+</html>

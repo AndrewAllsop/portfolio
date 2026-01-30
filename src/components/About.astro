@@ -1,0 +1,80 @@
+---
+interface Props {
+  showFullContent?: boolean;
+}
+
+const { showFullContent = false } = Astro.props;
+
+const skills = [
+  'JavaScript', 'TypeScript', 'React', 'Node.js',
+  'Python', 'Astro', 'Tailwind CSS', 'PostgreSQL'
+];
+---
+
+<section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <!-- Section Header -->
+      <div class="mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          About Me
+        </h2>
+        <div class="w-20 h-1 bg-primary-500 rounded"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+        <p>
+          I'm a developer and designer passionate about creating digital experiences that are both
+          beautiful and functional. With a focus on modern web technologies, I help bring ideas to
+          life through clean code and thoughtful design.
+        </p>
+
+        {showFullContent && (
+          <>
+            <p>
+              My journey in tech started with curiosity about how things work. Today, I specialize
+              in building full-stack applications using modern frameworks and tools. I believe in
+              writing maintainable code, continuous learning, and pushing the boundaries of what's
+              possible on the web.
+            </p>
+            <p>
+              When I'm not coding, you'll find me exploring new technologies, contributing to
+              open-source projects, or sharing my knowledge through writing and speaking. I'm
+              always open to new opportunities and collaborations.
+            </p>
+          </>
+        )}
+      </div>
+
+      <!-- Skills -->
+      <div class="mt-12">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+          Technologies I Work With
+        </h3>
+        <div class="flex flex-wrap gap-2">
+          {skills.map((skill) => (
+            <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-sm font-medium rounded-lg">
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- CTA (only on preview) -->
+      {!showFullContent && (
+        <div class="mt-8">
+          <a
+            href="/about"
+            class="inline-flex items-center gap-2 text-primary-600 dark:text-primary-400 font-medium hover:underline"
+          >
+            Learn more about me
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+      )}
+    </div>
+  </div>
+</section>

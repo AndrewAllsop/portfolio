@@ -1,0 +1,60 @@
+---
+import '../../styles/global.css';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Notes | Andrew Allsop</title>
+    <meta name="description" content="Notes on development, design, and technology." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body class="bg-neutral-900 text-neutral-100 min-h-screen">
+    <div class="max-w-xl mx-auto px-6 py-16">
+      <!-- Nav -->
+      <nav class="flex items-center justify-between mb-16 text-sm">
+        <div class="flex items-center gap-6">
+          <a href="/" class="text-neutral-300 hover:text-white transition-colors">Home</a>
+          <a href="/about" class="text-neutral-300 hover:text-white transition-colors">About</a>
+          <a href="/projects" class="text-neutral-300 hover:text-white transition-colors">Projects</a>
+        </div>
+        <a href="mailto:hello@andrewallsop.com" class="text-white underline underline-offset-4">Contact</a>
+      </nav>
+
+      <!-- Header -->
+      <div class="mb-10">
+        <h1 class="text-2xl font-semibold text-white mb-3">Notes</h1>
+        <p class="text-neutral-400">Thoughts on development, design, and technology.</p>
+      </div>
+
+      <!-- Posts -->
+      <div class="space-y-0">
+        {sortedPosts.map((post) => (
+          <a
+            href={`/blog/${post.id}`}
+            class="flex items-center justify-between py-4 border-t border-neutral-800 hover:bg-neutral-800/50 -mx-3 px-3 transition-colors group"
+          >
+            <div>
+              <span class="text-white block mb-1">{post.data.title}</span>
+              <span class="text-sm text-neutral-500">
+                {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+              </span>
+            </div>
+            <svg class="w-4 h-4 text-neutral-500 group-hover:text-white transition-colors flex-shrink-0 ml-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </body>
+</html>

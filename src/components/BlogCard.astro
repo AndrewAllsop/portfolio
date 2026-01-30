@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  slug: string;
+  tags?: string[];
+  readingTime?: number;
+}
+
+const { title, description, pubDate, slug, tags = [], readingTime = 5 } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<article class="group">
+  <a href={`/blog/${slug}`} class="block hover:no-underline">
+    <div class="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl p-6 hover:shadow-lg transition-shadow">
+      <!-- Date and Reading Time -->
+      <div class="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-3">
+        <time datetime={pubDate.toISOString()}>
+          {formattedDate}
+        </time>
+        <span class="flex items-center gap-1">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          {readingTime} min read
+        </span>
+      </div>
+
+      <!-- Title -->
+      <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+        {title}
+      </h3>
+
+      <!-- Description -->
+      <p class="text-gray-600 dark:text-gray-400 mb-4 line-clamp-2">
+        {description}
+      </p>
+
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2">
+          {tags.slice(0, 3).map((tag) => (
+            <span class="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 text-xs font-medium rounded">
+              #{tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <!-- Read More -->
+      <div class="mt-4 flex items-center gap-2 text-sm font-medium text-primary-600 dark:text-primary-400">
+        Read article
+        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </div>
+    </div>
+  </a>
+</article>

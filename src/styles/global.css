@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reset link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Prose styling for blog posts */
+.prose {
+  @apply max-w-none;
+}
+
+.prose h1 {
+  @apply text-2xl font-semibold mb-6 text-white;
+}
+
+.prose h2 {
+  @apply text-xl font-semibold mt-10 mb-4 text-white;
+}
+
+.prose h3 {
+  @apply text-lg font-semibold mt-8 mb-3 text-white;
+}
+
+.prose p {
+  @apply text-neutral-400 leading-relaxed mb-6;
+}
+
+.prose ul, .prose ol {
+  @apply my-4 pl-6 text-neutral-400;
+}
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose ol {
+  @apply list-decimal;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose code {
+  @apply bg-neutral-800 px-1.5 py-0.5 rounded text-sm font-mono text-neutral-300;
+}
+
+.prose pre {
+  @apply bg-neutral-800 text-neutral-300 p-4 rounded-lg overflow-x-auto my-6;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose blockquote {
+  @apply border-l-2 border-neutral-700 pl-4 italic text-neutral-500 my-6;
+}
+
+.prose a {
+  @apply text-white underline underline-offset-4 hover:text-neutral-300;
+}
+
+.prose img {
+  @apply rounded-lg my-6;
+}
+
+/* Selection */
+::selection {
+  @apply bg-neutral-700 text-white;
+}
