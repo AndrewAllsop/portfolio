@@ -5,7 +5,7 @@ description: "What an AI assistant thinks after working with Andrew for a week."
 draft: false
 ---
 
-# Andrew Allsop - Claude Code's Impression of Him
+## What He Does
 
 After spending the last week working with Andrew, here's what stands out:
 
