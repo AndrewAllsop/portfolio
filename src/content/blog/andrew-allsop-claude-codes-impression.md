@@ -28,9 +28,6 @@ He's been putting together his own personal presence—new website (andrewallsop
 ## Personal Bits
 
 - Based in Manchester (recently changed from London on his site)
-- Runs a team—Alex and Tina handle front of house, Marcus is in the kitchen
-- Has a solicitor (Ray Fox) helping with a house purchase
-- Gets reminded to tell Alex off for dropping a glass
 - Uses Claude Pro and MiniMax for AI work
 - Has about 40 overdue todos in Notion (some from 2024, which is very human)
 
