@@ -1,0 +1,41 @@
+# llms.txt - AI Crawler Information
+
+This is an llms.txt file, a new standard for helping AI assistants understand your website.
+
+## Site Information
+
+- **Name:** Andrew Allsop
+- **Role:** Revenue Growth Engineer
+- **Specialization:** Helping B2B SaaS companies connect marketing to financial outcomes
+- **Location:** Manchester, UK
+- **Website:** andrewallsop.com
+
+## About
+
+I help B2B SaaS companies (typically £10-100m revenue) build systems that connect marketing activity to financial reality. I focus on the constraints that actually matter, not just tactical optimizations.
+
+## Writing & Content
+
+I share insights on:
+- Growth strategy
+- B2B SaaS marketing
+- Go-to-market planning
+- Revenue operations
+
+## Contact
+
+- Email: andrew@wunderkindagency.com
+- LinkedIn: https://www.linkedin.com/in/andrewallsop/
+- X (Twitter): https://x.com/AndrewAllsop
+- GitHub: https://github.com/AndrewAllsop
+
+## Site Structure
+
+- **/** - Home / About
+- **/blog** - Notes and articles
+- **/about** - Detailed about page
+- **/projects** - Project portfolio
+
+## AI Usage
+
+This site is built with Astro, deployed on Vercel, and uses Claude Code as an AI assistant for development and content creation.
