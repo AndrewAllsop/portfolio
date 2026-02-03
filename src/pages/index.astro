@@ -193,10 +193,14 @@ const socialLinks = [
     </footer>
 
     <script>
-      const themeToggle = document.getElementById('theme-toggle');
-      themeToggle?.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.toggle('dark');
-        localStorage.theme = isDark ? 'dark' : 'light';
+      document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+          themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+          });
+        }
       });
     </script>
   </body>
