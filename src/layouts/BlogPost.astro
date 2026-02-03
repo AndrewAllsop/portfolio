@@ -31,22 +31,29 @@ const formattedPubDate = pubDate.toLocaleDateString('en-US', {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
-  <body class="bg-neutral-900 text-neutral-100 min-h-screen">
+  <body class="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 min-h-screen transition-colors">
+    <script is:inline>
+      if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
     <div class="max-w-xl mx-auto px-6 py-16">
       <!-- Nav -->
       <nav class="flex items-center justify-between mb-16 text-sm">
         <div class="flex items-center gap-6">
-          <a href="/" class="text-neutral-300 hover:text-white transition-colors">Home</a>
-          <a href="/blog" class="text-neutral-300 hover:text-white transition-colors">Notes</a>
+          <a href="/about" class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white transition-colors">About</a>
+          <a href="/blog" class="text-neutral-600 hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-white transition-colors">Notes</a>
         </div>
-        <a href="mailto:hello@andrewallsop.com" class="text-white underline underline-offset-4">Contact</a>
+        <a href="mailto:andrew@wunderkindagency.com" class="text-neutral-900 dark:text-white underline underline-offset-4">Contact</a>
       </nav>
 
       <article>
         <!-- Back Link -->
         <a
           href="/blog"
-          class="inline-flex items-center gap-2 text-sm text-neutral-400 hover:text-white mb-8 transition-colors"
+          class="inline-flex items-center gap-2 text-sm text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white mb-8 transition-colors"
         >
           <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -56,10 +63,10 @@ const formattedPubDate = pubDate.toLocaleDateString('en-US', {
 
         <!-- Article Header -->
         <header class="mb-10">
-          <time class="text-sm text-neutral-500 mb-3 block" datetime={pubDate.toISOString()}>
+          <time class="text-sm text-neutral-500 dark:text-neutral-400 mb-3 block" datetime={pubDate.toISOString()}>
             {formattedPubDate}
           </time>
-          <h2 class="text-2xl font-semibold text-white mb-4 leading-tight">
+          <h2 class="text-2xl font-semibold text-neutral-900 dark:text-white mb-4 leading-tight">
             {title}
           </h2>
         </header>
@@ -70,10 +77,10 @@ const formattedPubDate = pubDate.toLocaleDateString('en-US', {
         </div>
 
         <!-- Article Footer -->
-        <footer class="mt-12 pt-8 border-t border-neutral-800">
+        <footer class="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800">
           <a
             href="/blog"
-            class="inline-flex items-center gap-2 text-white text-sm underline underline-offset-4 hover:text-neutral-300"
+            class="inline-flex items-center gap-2 text-neutral-900 dark:text-white text-sm underline underline-offset-4 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
           >
             View all notes
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,5 +90,17 @@ const formattedPubDate = pubDate.toLocaleDateString('en-US', {
         </footer>
       </article>
     </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const themeToggle = document.getElementById('theme-toggle');
+        if (themeToggle) {
+          themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+          });
+        }
+      });
+    </script>
   </body>
 </html>
