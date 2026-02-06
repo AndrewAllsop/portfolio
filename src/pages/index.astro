@@ -98,21 +98,27 @@ const socialLinks = [
         <!-- Newsletter -->
         <div class="mb-12">
           <p class="text-neutral-900 dark:text-white text-sm mb-3">Get occasional insights — join the newsletter</p>
-          <form class="flex gap-2">
+          <form id="newsletter-form" class="flex gap-2">
             <div class="relative flex-1">
               <input
+                id="newsletter-email"
                 type="email"
+                name="email_address"
+                required
                 placeholder="you@example.com"
                 class="w-full px-4 py-2.5 bg-neutral-100 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-lg text-neutral-900 dark:text-white placeholder-neutral-500 text-sm focus:outline-none focus:border-neutral-400 dark:focus:border-neutral-600"
               />
             </div>
             <button
+              id="newsletter-btn"
               type="submit"
               class="px-4 py-2.5 bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 text-sm font-medium rounded-lg hover:bg-neutral-800 dark:hover:bg-neutral-200 transition-colors"
             >
               Subscribe
             </button>
           </form>
+          <p id="newsletter-success" class="text-green-600 dark:text-green-400 text-sm mt-2 hidden">You're in! Check your email to confirm.</p>
+          <p id="newsletter-error" class="text-red-600 dark:text-red-400 text-sm mt-2 hidden">Something went wrong. Please try again.</p>
         </div>
       </div>
 
@@ -200,6 +206,44 @@ const socialLinks = [
           themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+          });
+        }
+
+        const form = document.getElementById('newsletter-form');
+        if (form) {
+          form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            const btn = document.getElementById('newsletter-btn');
+            const success = document.getElementById('newsletter-success');
+            const error = document.getElementById('newsletter-error');
+
+            success.classList.add('hidden');
+            error.classList.add('hidden');
+            btn.disabled = true;
+            btn.textContent = 'Subscribing...';
+
+            try {
+              const data = new FormData();
+              data.append('email_address', email);
+
+              const res = await fetch('https://app.convertkit.com/forms/9061075/subscriptions', {
+                method: 'POST',
+                body: data,
+              });
+
+              if (res.ok || res.status === 302) {
+                success.classList.remove('hidden');
+                form.reset();
+              } else {
+                error.classList.remove('hidden');
+              }
+            } catch {
+              error.classList.remove('hidden');
+            } finally {
+              btn.disabled = false;
+              btn.textContent = 'Subscribe';
+            }
           });
         }
       });
