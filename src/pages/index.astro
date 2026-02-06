@@ -224,15 +224,13 @@ const socialLinks = [
             btn.textContent = 'Subscribing...';
 
             try {
-              const data = new FormData();
-              data.append('email_address', email);
-
-              const res = await fetch('https://app.convertkit.com/forms/9061075/subscriptions', {
+              const res = await fetch('https://api.convertkit.com/v3/forms/9061075/subscribe', {
                 method: 'POST',
-                body: data,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ api_key: '8YZxYV-nUZS0oKdnQl3x3w', email }),
               });
 
-              if (res.ok || res.status === 302) {
+              if (res.ok) {
                 success.classList.remove('hidden');
                 form.reset();
               } else {
