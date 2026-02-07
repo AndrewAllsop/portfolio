@@ -1,7 +1,13 @@
 ---
 import '../styles/global.css';
 
-const skills = ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'Astro', 'Tailwind CSS', 'PostgreSQL'];
+const skillCategories = [
+  { label: 'Analytics & Performance', items: ['GA4', 'Google Tag Manager', 'Mixpanel', 'Amplitude', 'Segment', 'Google Sheets', 'ChartMogul'] },
+  { label: 'Media Channels', items: ['Facebook Ads', 'LinkedIn Ads', 'Google Ads', 'Twitter Ads', 'Ahrefs', 'Twilio'] },
+  { label: 'CRM & Automation', items: ['HubSpot', 'Salesforce', 'Customer.io', 'Zapier'] },
+  { label: 'Strategy', items: ['Product-led Growth', 'Inside Sales', 'Segmentation', 'Messaging', 'SaaS Metrics', 'Go-to-Market Strategy'] },
+  { label: 'AI', items: ['ChatGPT', 'Claude', 'Local LLMs', 'Cursor', 'n8n', 'Replit', 'Claude Code'] },
+];
 ---
 
 <!doctype html>
@@ -66,12 +72,19 @@ const skills = ['JavaScript', 'TypeScript', 'React', 'Node.js', 'Python', 'Astro
 
       <!-- Skills -->
       <div class="mb-10">
-        <h2 class="text-neutral-500 dark:text-neutral-400 text-sm font-medium mb-4">Technologies</h2>
-        <div class="flex flex-wrap gap-2">
-          {skills.map((skill) => (
-            <span class="px-3 py-1.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm rounded">
-              {skill}
-            </span>
+        <h2 class="text-neutral-500 dark:text-neutral-400 text-sm font-medium mb-6">Marketing Technology</h2>
+        <div class="space-y-4">
+          {skillCategories.map((category) => (
+            <div>
+              <h3 class="text-neutral-700 dark:text-neutral-300 text-sm font-medium mb-2">{category.label}</h3>
+              <div class="flex flex-wrap gap-2">
+                {category.items.map((item) => (
+                  <span class="px-3 py-1.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm rounded">
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
