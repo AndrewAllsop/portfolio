@@ -144,6 +144,60 @@ const skillCategories = [
       </a>
     </div>
 
+    <!-- Footer -->
+    <footer class="border-t border-neutral-200 dark:border-neutral-800 mt-16">
+      <div class="max-w-xl mx-auto px-6 py-16">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-12 mb-12">
+          <!-- Brand -->
+          <div class="col-span-2 md:col-span-1">
+            <h3 class="text-neutral-900 dark:text-white font-semibold mb-3">andrewallsop</h3>
+            <p class="text-neutral-500 dark:text-neutral-400 text-sm leading-relaxed">
+              Marketing and growth consultant for B2B SaaS. Sharing insights on growth, startups, and go-to-market.
+            </p>
+          </div>
+
+          <!-- Pages -->
+          <div>
+            <h4 class="text-neutral-400 dark:text-neutral-500 text-xs font-medium uppercase tracking-wider mb-4">Pages</h4>
+            <ul class="space-y-3">
+              <li><a href="/blog" class="text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors text-sm">Notes</a></li>
+              <li><a href="/about" class="text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors text-sm">About</a></li>
+              <li><a href="/projects" class="text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors text-sm">Projects</a></li>
+            </ul>
+          </div>
+
+          <!-- Social -->
+          <div>
+            <h4 class="text-neutral-400 dark:text-neutral-500 text-xs font-medium uppercase tracking-wider mb-4">Social</h4>
+            <ul class="space-y-3">
+              <li><a href="https://x.com/AndrewAllsop" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors text-sm">X</a></li>
+              <li><a href="https://www.linkedin.com/in/andrewallsop/" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors text-sm">LinkedIn</a></li>
+              <li><a href="https://github.com/AndrewAllsop" target="_blank" rel="noopener noreferrer" class="text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors text-sm">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div class="pt-8 border-t border-neutral-200 dark:border-neutral-800 flex items-center justify-between text-sm text-neutral-500">
+          <div class="flex items-center gap-2">
+            <span>&copy; 2026</span>
+            <span>·</span>
+            <span>Manchester</span>
+            <span>·</span>
+            <a href="/llms.txt" class="hover:text-neutral-700 dark:hover:text-neutral-300">llms.txt</a>
+          </div>
+          <button id="theme-toggle" class="text-neutral-500 hover:text-neutral-900 dark:hover:text-white transition-colors">
+            <svg class="w-4 h-4 hidden dark:inline" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg class="w-4 h-4 inline dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+
     <script>
       document.addEventListener('DOMContentLoaded', () => {
         const themeToggle = document.getElementById('theme-toggle');
