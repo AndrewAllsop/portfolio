@@ -2,11 +2,48 @@
 import '../styles/global.css';
 
 const skillCategories = [
-  { label: 'Analytics & Performance', items: ['GA4', 'Google Tag Manager', 'Mixpanel', 'Amplitude', 'Segment', 'Google Sheets', 'ChartMogul'] },
-  { label: 'Media Channels', items: ['Facebook Ads', 'LinkedIn Ads', 'Google Ads', 'Twitter Ads', 'Ahrefs', 'Twilio'] },
-  { label: 'CRM & Automation', items: ['HubSpot', 'Salesforce', 'Customer.io', 'Zapier'] },
-  { label: 'Strategy', items: ['Product-led Growth', 'Inside Sales', 'Segmentation', 'Messaging', 'SaaS Metrics', 'Go-to-Market Strategy'] },
-  { label: 'AI', items: ['ChatGPT', 'Claude', 'Local LLMs', 'Cursor', 'n8n', 'Replit', 'Claude Code'] },
+  { label: 'Analytics & Performance', items: [
+    { name: 'GA4', url: 'https://analytics.google.com' },
+    { name: 'Google Tag Manager', url: 'https://tagmanager.google.com' },
+    { name: 'Mixpanel', url: 'https://mixpanel.com' },
+    { name: 'Amplitude', url: 'https://amplitude.com' },
+    { name: 'Segment', url: 'https://segment.com' },
+    { name: 'PostHog', url: 'https://posthog.com' },
+    { name: 'Google Sheets', url: 'https://sheets.google.com' },
+    { name: 'ChartMogul', url: 'https://chartmogul.com' },
+  ]},
+  { label: 'Media Channels', items: [
+    { name: 'Facebook Ads', url: 'https://www.facebook.com/business/ads' },
+    { name: 'LinkedIn Ads', url: 'https://business.linkedin.com/marketing-solutions/ads' },
+    { name: 'Google Ads', url: 'https://ads.google.com' },
+    { name: 'Twitter Ads', url: 'https://ads.x.com' },
+    { name: 'Ahrefs', url: 'https://ahrefs.com' },
+    { name: 'Twilio', url: 'https://www.twilio.com' },
+  ]},
+  { label: 'CRM & Automation', items: [
+    { name: 'HubSpot', url: 'https://www.hubspot.com' },
+    { name: 'Salesforce', url: 'https://www.salesforce.com' },
+    { name: 'Customer.io', url: 'https://customer.io' },
+    { name: 'Zapier', url: 'https://zapier.com' },
+  ]},
+  { label: 'Strategy', items: [
+    { name: 'Product-led Growth' },
+    { name: 'Inside Sales' },
+    { name: 'Segmentation' },
+    { name: 'Messaging' },
+    { name: 'SaaS Metrics' },
+    { name: 'Go-to-Market Strategy' },
+  ]},
+  { label: 'AI', items: [
+    { name: 'ChatGPT', url: 'https://chatgpt.com' },
+    { name: 'Claude', url: 'https://claude.ai' },
+    { name: 'Local LLMs' },
+    { name: 'Cursor', url: 'https://www.cursor.com' },
+    { name: 'n8n', url: 'https://n8n.io' },
+    { name: 'Replit', url: 'https://replit.com' },
+    { name: 'Claude Code', url: 'https://claude.ai/code' },
+    { name: 'OpenClaw', url: 'https://openclaw.com' },
+  ]},
 ];
 ---
 
@@ -79,9 +116,15 @@ const skillCategories = [
               <h3 class="text-neutral-700 dark:text-neutral-300 text-sm font-medium mb-2">{category.label}</h3>
               <div class="flex flex-wrap gap-2">
                 {category.items.map((item) => (
-                  <span class="px-3 py-1.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm rounded">
-                    {item}
-                  </span>
+                  item.url ? (
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm rounded hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors">
+                      {item.name}
+                    </a>
+                  ) : (
+                    <span class="px-3 py-1.5 bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 text-sm rounded">
+                      {item.name}
+                    </span>
+                  )
                 ))}
               </div>
             </div>
