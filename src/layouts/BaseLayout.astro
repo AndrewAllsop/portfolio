@@ -71,6 +71,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       gtag('js', new Date());
       gtag('config', 'G-LNZJEMMDTN');
     </script>
+
+    <!-- Microsoft Ads UET Tag -->
+    <script>
+      (function(w,d,t,r,u){
+        var f,n,i;
+        w[u]=w[u]||[];
+        f=function(){
+          var o={ti:"187234876", enableAutoSpaTracking: true};
+          o.q=w[u];
+          w[u]=new UET(o);
+          w[u].push("pageLoad");
+        };
+        n=d.createElement(t);
+        n.src=r;
+        n.async=1;
+        n.onload=n.onreadystatechange=function(){
+          var s=this.readyState;
+          s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null);
+        };
+        i=d.getElementsByTagName(t)[0];
+        i.parentNode.insertBefore(n,i);
+      })(window,document,"script","//bat.bing.com/bat.js","uetq");
+    </script>
+    <script>
+      window.uetq = window.uetq || [];
+      window.uetq.push('consent', 'default', { ad_storage: 'denied' });
+
+      // Call this when user accepts marketing cookies in your consent banner.
+      window.grantMicrosoftAdsConsent = function () {
+        window.uetq = window.uetq || [];
+        window.uetq.push('consent', 'update', { ad_storage: 'granted' });
+      };
+    </script>
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
