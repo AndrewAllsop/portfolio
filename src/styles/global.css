@@ -27,23 +27,23 @@ a {
 }
 
 .prose h1 {
-  @apply text-2xl font-semibold mb-6 text-white;
+  @apply text-2xl font-semibold mb-6 text-neutral-900 dark:text-white;
 }
 
 .prose h2 {
-  @apply text-xl font-semibold mt-10 mb-4 text-white;
+  @apply text-xl font-semibold mt-10 mb-4 text-neutral-900 dark:text-white;
 }
 
 .prose h3 {
-  @apply text-lg font-semibold mt-8 mb-3 text-white;
+  @apply text-lg font-semibold mt-8 mb-3 text-neutral-900 dark:text-white;
 }
 
 .prose p {
-  @apply text-neutral-400 leading-relaxed mb-6;
+  @apply text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6;
 }
 
 .prose ul, .prose ol {
-  @apply my-4 pl-6 text-neutral-400;
+  @apply my-4 pl-6 text-neutral-600 dark:text-neutral-400;
 }
 
 .prose ul {
@@ -59,11 +59,11 @@ a {
 }
 
 .prose code {
-  @apply bg-neutral-800 px-1.5 py-0.5 rounded text-sm font-mono text-neutral-300;
+  @apply bg-neutral-100 dark:bg-neutral-800 px-1.5 py-0.5 rounded text-sm font-mono text-neutral-700 dark:text-neutral-300;
 }
 
 .prose pre {
-  @apply bg-neutral-800 text-neutral-300 p-4 rounded-lg overflow-x-auto my-6;
+  @apply bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 p-4 rounded-lg overflow-x-auto my-6;
 }
 
 .prose pre code {
@@ -71,11 +71,11 @@ a {
 }
 
 .prose blockquote {
-  @apply border-l-2 border-neutral-700 pl-4 italic text-neutral-500 my-6;
+  @apply border-l-2 border-neutral-300 dark:border-neutral-700 pl-4 italic text-neutral-500 my-6;
 }
 
 .prose a {
-  @apply text-white underline underline-offset-4 hover:text-neutral-300;
+  @apply text-neutral-900 dark:text-white underline underline-offset-4 hover:text-neutral-600 dark:hover:text-neutral-300;
 }
 
 .prose img {
@@ -84,5 +84,5 @@ a {
 
 /* Selection */
 ::selection {
-  @apply bg-neutral-700 text-white;
+  @apply bg-neutral-200 dark:bg-neutral-700 text-neutral-900 dark:text-white;
 }
