@@ -70,6 +70,9 @@ const formattedPubDate = pubDate.toLocaleDateString('en-US', {
           <h2 class="text-2xl font-semibold text-neutral-900 dark:text-white mb-4 leading-tight">
             {title}
           </h2>
+          {image && (
+            <img src={image} alt={title} class="w-full rounded-lg mt-6" />
+          )}
         </header>
 
         <!-- Article Content -->
