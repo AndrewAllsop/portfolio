@@ -2,6 +2,7 @@
 title: "Leaky Taps or Sinking Ships? The Marketing Optimisation Trap"
 pubDate: 2026-02-15
 description: "The case for thinking in systems, not channels."
+image: /leaky-taps-hero.jpg
 draft: false
 tags:
   - marketing
