@@ -27,6 +27,29 @@ const formattedPubDate = pubDate.toLocaleDateString('en-US', {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Andrew Allsop</title>
     <meta name="description" content={description} />
+    
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url.href} />
+    {image && <meta property="og:image" content={new URL(image, Astro.site).href} />}
+    <meta property="og:site_name" content="Andrew Allsop" />
+    <meta property="article:published_time" content={pubDate.toISOString()} />
+    {updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+    <meta property="article:author" content="Andrew Allsop" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content={image ? "summary_large_image" : "summary"} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {image && <meta name="twitter:image" content={new URL(image, Astro.site).href} />}
+    <meta name="twitter:site" content="@AndrewAllsop" />
+    <meta name="twitter:creator" content="@AndrewAllsop" />
+    
+    <!-- Canonical -->
+    <link rel="canonical" href={Astro.url.href} />
+    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
