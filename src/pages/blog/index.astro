@@ -14,6 +14,19 @@ const sortedPosts = posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDa
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Notes | Andrew Allsop</title>
     <meta name="description" content="Notes on development, design, and technology." />
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LNZJEMMDTN"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LNZJEMMDTN', {
+        page_title: document.title,
+        page_path: window.location.pathname,
+        page_location: window.location.href
+      });
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
