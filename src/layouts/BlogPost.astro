@@ -49,6 +49,19 @@ const formattedPubDate = pubDate.toLocaleDateString('en-US', {
     
     <!-- Canonical -->
     <link rel="canonical" href={Astro.url.href} />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LNZJEMMDTN"></script>
+    <script is:inline define:vars={{ pageTitle: title }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-LNZJEMMDTN', {
+        page_title: pageTitle,
+        page_path: window.location.pathname,
+        page_location: window.location.href
+      });
+    </script>
     
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

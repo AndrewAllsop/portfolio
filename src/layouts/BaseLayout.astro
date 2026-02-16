@@ -65,11 +65,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LNZJEMMDTN"></script>
-    <script is:inline>
+    <script is:inline define:vars={{ pageTitle: title }}>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-LNZJEMMDTN', {
+        page_title: pageTitle,
         page_path: window.location.pathname,
         page_location: window.location.href
       });
