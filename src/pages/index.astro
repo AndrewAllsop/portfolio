@@ -62,7 +62,7 @@ const socialLinks = [
       <!-- Profile -->
       <div class="mb-8 max-w-[375px]">
         <div class="w-24 h-24 rounded-lg bg-neutral-200 dark:bg-neutral-700 mb-6 overflow-hidden">
-          <img src="/images/headshot.png" alt="Andrew Allsop" class="w-full h-full object-cover" />
+          <img id="headshot" src="/images/headshot.png" alt="Andrew Allsop" class="w-full h-full object-cover transition-opacity duration-200" />
         </div>
 
         <h1 class="text-2xl font-semibold text-neutral-900 dark:text-white mb-2">Andrew Allsop</h1>
@@ -210,6 +210,24 @@ const socialLinks = [
           themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+          });
+        }
+
+        // Sparkle headshot on subscribe hover
+        const subscribeBtn = document.getElementById('newsletter-btn');
+        const headshot = document.getElementById('headshot');
+        if (subscribeBtn && headshot) {
+          const normalSrc = '/images/headshot.png';
+          const sparkleSrc = '/images/headshot-sparkle.jpg';
+          // Preload sparkle image
+          const preload = new Image();
+          preload.src = sparkleSrc;
+          
+          subscribeBtn.addEventListener('mouseenter', () => {
+            headshot.src = sparkleSrc;
+          });
+          subscribeBtn.addEventListener('mouseleave', () => {
+            headshot.src = normalSrc;
           });
         }
 
