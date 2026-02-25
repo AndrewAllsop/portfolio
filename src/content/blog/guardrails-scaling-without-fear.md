@@ -1,7 +1,7 @@
 ---
-title: "Scale Without Betting the Company: A Guardrails Approach"
+title: "Marketing Guardrails: How to Scale Spend Without Killing Unit Economics"
 pubDate: 2026-02-25
-description: "Most companies don't fail to scale because they lack ambition. They fail to scale because spending feels like unmanaged risk. Guardrails change that."
+description: "A practical guardrails framework for B2B SaaS marketers to scale budget safely using CPM, CTR, conversion rate, CAC, win rate, ACV, and payback controls."
 draft: false
 tags:
   - marketing
